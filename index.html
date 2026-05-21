@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalaignan Studio Lounge – Premium Salon, Coimbatore</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --gold-dark: #8a6d2f;
+    --black: #0d0d0d;
+    --off-white: #faf8f4;
+    --warm-gray: #6b6560;
+    --section-bg: #f5f0e8;
+    --card-bg: #fff;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Jost', sans-serif;
+    --transition: 0.3s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--off-white); color: var(--black); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5%;
+    background: rgba(13,13,13,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color var(--transition);
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--black) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2px;
+    font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--black) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0d0d0d 0%, #1a1510 50%, #0d0d0d 100%);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 8rem 5% 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(201,168,76,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 0.4rem 1.2rem;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero p {
+    font-size: 1.1rem;
+    color: #aaa;
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+    font-weight: 300;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .hero-btns {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.6s ease both;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 0.9rem 2.2rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background var(--transition), transform var(--transition);
+    border-radius: 2px;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 0.9rem 2.2rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color var(--transition), color var(--transition);
+    border-radius: 2px;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .scroll-indicator {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    color: var(--gold); font-size: 0.7rem; letter-spacing: 0.2em;
+    text-transform: uppercase; animation: bounce 2s infinite;
+  }
+  .scroll-indicator::after {
+    content: '↓';
+    display: block; text-align: center; margin-top: 0.3rem; font-size: 1rem;
+  }
+
+  /* SECTION COMMON */
+  section { padding: 6rem 5%; }
+  .section-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    color: var(--warm-gray);
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 480px;
+    font-weight: 300;
+  }
+  .divider {
+    width: 3rem; height: 2px;
+    background: var(--gold);
+    margin: 1.5rem 0;
+  }
+
+  /* ABOUT */
+  .about { background: var(--black); color: #fff; }
+  .about-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .about .section-title { color: #fff; }
+  .about .section-sub { color: #999; }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem;
+  }
+  .stat-card {
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 1.5rem;
+    border-radius: 4px;
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--gold);
+  }
+  .stat-label { font-size: 0.8rem; color: #888; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; }
+  .about-img-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  .about-img {
+    border-radius: 4px; overflow: hidden; aspect-ratio: 1;
+    background: #1a1a1a;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 0.9rem; color: var(--gold);
+    font-style: italic; text-align: center; padding: 1rem;
+    border: 1px solid rgba(201,168,76,0.2);
+  }
+  .about-img:first-child { grid-row: span 2; aspect-ratio: auto; min-height: 300px; font-size: 1.1rem; }
+
+  /* SERVICES */
+  .services { background: var(--section-bg); }
+  .services-inner { max-width: 1100px; margin: 0 auto; }
+  .services-header { text-align: center; margin-bottom: 4rem; }
+  .services-header .section-sub { margin: 0 auto; }
+  .services-header .divider { margin: 1.5rem auto; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;
+  }
+  .service-card {
+    background: var(--card-bg);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+  .service-img {
+    height: 200px; background: linear-gradient(135deg, #1a1510, #2a2015);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; border-bottom: 2px solid var(--gold);
+  }
+  .service-body { padding: 1.5rem; }
+  .service-name { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.5rem; }
+  .service-desc { color: var(--warm-gray); font-size: 0.9rem; line-height: 1.7; font-weight: 300; }
+  .service-price {
+    display: inline-block; margin-top: 1rem;
+    color: var(--gold-dark); font-weight: 600; font-size: 0.9rem;
+    background: rgba(201,168,76,0.1);
+    padding: 0.3rem 0.8rem; border-radius: 2px;
+  }
+
+  /* PRICING */
+  .pricing { background: var(--black); color: #fff; }
+  .pricing-inner { max-width: 1100px; margin: 0 auto; }
+  .pricing-header { text-align: center; margin-bottom: 4rem; }
+  .pricing-header .section-title { color: #fff; }
+  .pricing-header .section-sub { color: #999; margin: 0 auto; }
+  .pricing-header .divider { margin: 1.5rem auto; }
+  .pricing-tabs {
+    display: flex; justify-content: center; gap: 0; margin-bottom: 3rem;
+    border: 1px solid rgba(201,168,76,0.3); border-radius: 4px;
+    overflow: hidden; width: fit-content; margin-left: auto; margin-right: auto;
+  }
+  .pricing-tab {
+    padding: 0.6rem 1.8rem;
+    font-family: var(--font-body); font-size: 0.8rem;
+    font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    background: transparent; color: #888;
+    border: none; cursor: pointer; transition: all var(--transition);
+  }
+  .pricing-tab.active { background: var(--gold); color: var(--black); }
+  .pricing-table { width: 100%; border-collapse: collapse; }
+  .pricing-table th {
+    text-align: left; padding: 0.8rem 1.5rem;
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); border-bottom: 1px solid rgba(201,168,76,0.3);
+  }
+  .pricing-table td { padding: 1rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.95rem; }
+  .pricing-table tr:hover td { background: rgba(255,255,255,0.03); }
+  .price-amt { color: var(--gold); font-weight: 600; font-family: var(--font-display); font-size: 1rem; }
+  .price-cat { color: #666; font-size: 0.8rem; }
+  .pricing-panel { display: none; }
+  .pricing-panel.active { display: block; }
+
+  /* GALLERY */
+  .gallery { background: var(--off-white); }
+  .gallery-inner { max-width: 1100px; margin: 0 auto; }
+  .gallery-header { margin-bottom: 3rem; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 1rem;
+  }
+  .gallery-item {
+    border-radius: 4px; overflow: hidden;
+    background: linear-gradient(135deg, #1a1510, #2a2015);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-style: italic;
+    color: var(--gold); text-align: center; padding: 1rem;
+    font-size: 0.9rem; line-height: 1.5;
+    border: 1px solid rgba(201,168,76,0.2);
+    transition: transform var(--transition);
+    cursor: pointer;
+  }
+  .gallery-item:hover { transform: scale(1.02); }
+  .gallery-item.wide { grid-column: span 2; }
+  .gallery-item.tall { grid-row: span 2; }
+
+  /* BOOKING */
+  .booking { background: var(--section-bg); }
+  .booking-inner {
+    max-width: 900px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start;
+  }
+  .booking-info .section-sub { font-size: 0.95rem; }
+  .contact-list { list-style: none; margin-top: 2rem; display: flex; flex-direction: column; gap: 1.2rem; }
+  .contact-list li { display: flex; gap: 1rem; align-items: flex-start; }
+  .contact-icon {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(201,168,76,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0; color: var(--gold);
+  }
+  .contact-text strong { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); display: block; margin-bottom: 0.2rem; }
+  .contact-text span { font-size: 0.95rem; }
+  .booking-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); font-weight: 500; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-family: var(--font-body); font-size: 0.9rem;
+    background: #fff; color: var(--black);
+    transition: border-color var(--transition);
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group textarea { min-height: 100px; resize: vertical; }
+  .form-submit {
+    background: var(--gold); color: var(--black);
+    border: none; padding: 1rem 2rem;
+    font-family: var(--font-body); font-size: 0.9rem;
+    font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; border-radius: 3px;
+    transition: background var(--transition), transform var(--transition);
+  }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .form-success {
+    display: none; background: rgba(201,168,76,0.1);
+    border: 1px solid var(--gold); border-radius: 4px;
+    padding: 1rem 1.5rem; text-align: center; color: var(--gold-dark);
+    font-weight: 500;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--black); color: #888;
+    padding: 4rem 5% 2rem;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+  }
+  .footer-brand { }
+  .footer-logo { font-family: var(--font-display); font-size: 1.4rem; color: var(--gold); margin-bottom: 1rem; }
+  .footer-tagline { font-size: 0.85rem; line-height: 1.7; font-weight: 300; color: #666; }
+  .footer-col h4 { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #aaa; margin-bottom: 1.2rem; font-weight: 600; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+  .footer-links a { color: #666; text-decoration: none; font-size: 0.85rem; transition: color var(--transition); }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom {
+    max-width: 1100px; margin: 3rem auto 0;
+    padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.8rem; color: #555;
+  }
+  .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* 3D PARTICLE CANVAS */
+  #particle-canvas {
+    position: absolute; inset: 0;
+    pointer-events: none; z-index: 0;
+  }
+  .hero-content { position: relative; z-index: 1; }
+
+  /* 3D FLOATING ORBS */
+  .orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(60px); pointer-events: none; z-index: 0;
+    animation: orbFloat 8s ease-in-out infinite;
+  }
+  .orb-1 { width: 400px; height: 400px; background: rgba(201,168,76,0.08); top: -100px; left: -100px; animation-delay: 0s; }
+  .orb-2 { width: 300px; height: 300px; background: rgba(201,168,76,0.06); bottom: -50px; right: -50px; animation-delay: 3s; }
+  .orb-3 { width: 200px; height: 200px; background: rgba(255,200,100,0.05); top: 40%; left: 60%; animation-delay: 5s; }
+  @keyframes orbFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-40px) scale(1.1); }
+  }
+
+  /* 3D TILT CARDS */
+  .service-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.15s ease, box-shadow 0.3s ease;
+  }
+  .service-card:hover {
+    box-shadow: 0 30px 60px rgba(201,168,76,0.2), 0 0 0 1px rgba(201,168,76,0.1);
+  }
+
+  /* GOLD SHIMMER ON HEADINGS */
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  .shimmer-text {
+    background: linear-gradient(90deg, var(--gold) 0%, #fff8e7 40%, var(--gold) 60%, #c9a84c 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+  }
+
+  /* FLOATING SCISSORS ICON */
+  @keyframes floatScissors {
+    0%, 100% { transform: translateY(0) rotate(-10deg); }
+    50% { transform: translateY(-15px) rotate(10deg); }
+  }
+  .float-icon {
+    display: inline-block;
+    animation: floatScissors 3s ease-in-out infinite;
+    filter: drop-shadow(0 4px 12px rgba(201,168,76,0.5));
+  }
+
+  /* 3D FLIP PRICING TABS */
+  .pricing-tab {
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .pricing-tab:hover { transform: translateY(-3px) scale(1.05); }
+  .pricing-tab.active { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(201,168,76,0.4); }
+
+  /* GLOW PULSE ON BOOK BUTTON */
+  @keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 10px rgba(201,168,76,0.4), 0 0 20px rgba(201,168,76,0.2); }
+    50% { box-shadow: 0 0 25px rgba(201,168,76,0.8), 0 0 50px rgba(201,168,76,0.4); }
+  }
+  .btn-primary { animation: glowPulse 2.5s ease-in-out infinite; }
+
+  /* 3D GALLERY HOVER */
+  .gallery-item {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    transform-style: preserve-3d;
+  }
+  .gallery-item:hover {
+    transform: scale(1.05) rotateY(5deg) translateZ(20px);
+    box-shadow: -10px 20px 40px rgba(201,168,76,0.3);
+  }
+
+  /* SLIDING GOLD LINE UNDER NAV LOGO */
+  .nav-logo { position: relative; }
+  .nav-logo::after {
+    content: '';
+    position: absolute; bottom: -3px; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold);
+    transition: width 0.4s ease;
+  }
+  .nav-logo:hover::after { width: 100%; }
+
+  /* 3D CONTACT ICON HOVER */
+  .contact-icon {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .contact-icon:hover {
+    transform: rotateY(180deg) scale(1.2);
+    box-shadow: 0 0 20px rgba(201,168,76,0.5);
+  }
+
+  /* STAT CARD 3D */
+  .stat-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+  }
+  .stat-card:hover {
+    transform: translateZ(15px) rotateX(-5deg);
+    box-shadow: 0 20px 40px rgba(201,168,76,0.2);
+  }
+
+  /* SCROLL PROGRESS BAR */
+  #scroll-progress {
+    position: fixed; top: 0; left: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), #fff8e7, var(--gold));
+    z-index: 9999; width: 0%; transition: width 0.1s linear;
+  }
+
+  /* CURSOR GLOW */
+  #cursor-glow {
+    position: fixed; pointer-events: none; z-index: 9998;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: left 0.1s ease, top 0.1s ease;
+  }
+
+  /* SECTION ENTRANCE 3D */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px) rotateX(5deg);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: top center;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0) rotateX(0deg); }
+
+  /* FORM INPUT GLOW */
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.15), 0 0 15px rgba(201,168,76,0.1);
+    transform: translateY(-1px);
+    transition: all 0.3s ease;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .about-inner, .booking-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .about-img-grid { display: none; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item.wide, .gallery-item.tall { grid-column: auto; grid-row: auto; }
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .footer-brand { grid-column: span 2; }
+    .form-row { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div id="scroll-progress"></div>
+<div id="cursor-glow"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Kalaignan Studio Lounge</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#booking" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <canvas id="particle-canvas"></canvas>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-content">
+    <div class="hero-tag">✦ Privacy Unisex Salon</div>
+    <h1>Where Beauty<br><em class="shimmer-text">Meets Artistry</em></h1>
+    <p>Experience art hair, skin, and beauty treatments crafted by expert stylists at Kalaignan Studio Lounge, Coimbatore.</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn-primary">Book Appointment</a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">Scroll</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="reveal">
+      <div class="section-tag">✦ Our Story</div>
+      <h2 class="section-title">Crafting Beauty<br>With Artistry</h2>
+      <div class="divider"></div>
+      <p class="section-sub">Kalaignan Studio Lounge is Coimbatore's go-to Privacy Unisex Salon for hair, skin, and beauty transformations. Our passionate team of certified stylists brings world-class techniques to every visit.</p>
+    </div>
+    <div class="about-img-grid reveal">
+      <div class="about-img">Hair<br>Styling<br>Studio</div>
+      <div class="about-img">Bridal<br>Services</div>
+      <div class="about-img">Skincare<br>Suite</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header reveal">
+      <div class="section-tag">✦ What We Offer</div>
+      <h2 class="section-title">Our Services</h2>
+      <div class="divider"></div>
+      <p class="section-sub">From everyday cuts to luxurious spa experiences, we offer a full menu of beauty services tailored to you.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-img">💇‍♀️</div>
+        <div class="service-body">
+          <h3 class="service-name">Hair Styling</h3>
+          <p class="service-desc">Expert cuts, blowouts, and styles for all hair types. From classic to contemporary, our stylists bring your vision to life.</p>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-img">✨</div>
+        <div class="service-body">
+          <h3 class="service-name">Hair Colour & Highlights</h3>
+          <p class="service-desc">Global colour, balayage, highlights, and creative colour work using premium international brands for vibrant, long-lasting results.</p>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-img">🧖‍♀️</div>
+        <div class="service-body">
+          <h3 class="service-name">Facials & Skincare</h3>
+          <p class="service-desc">Deep cleansing, brightening, and anti-aging facials using top dermatologist-recommended products for glowing skin.</p>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-img">👰</div>
+        <div class="service-body">
+          <h3 class="service-name">Bridal Package</h3>
+          <p class="service-desc">Complete wedding day glam — bridal makeup, hair styling, groom package, and pre-bridal skin treatments. Make your special day unforgettable.</p>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-img">🧴</div>
+        <div class="service-body">
+          <h3 class="service-name">Protein Treatments</h3>
+          <p class="service-desc">Premium Botox and Botoliss protein treatments to restore, smoothen, and deeply nourish damaged or frizzy hair for a silky finish.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-header reveal">
+      <div class="section-tag">✦ Transparent Pricing</div>
+      <h2 class="section-title">Our Price Menu</h2>
+      <div class="divider"></div>
+      <p class="section-sub">Honest, upfront pricing with no hidden costs. Quality treatments at every budget.</p>
+    </div>
+    <div class="pricing-tabs reveal">
+      <button class="pricing-tab active" onclick="showTab('hair')">Hair</button>
+      <button class="pricing-tab" onclick="showTab('colouring')">Colouring</button>
+      <button class="pricing-tab" onclick="showTab('protein')">Protein</button>
+      <button class="pricing-tab" onclick="showTab('skin')">Skin</button>
+      <button class="pricing-tab" onclick="showTab('makeup')">Make-up</button>
+    </div>
+
+    <!-- HAIR -->
+    <div id="panel-hair" class="pricing-panel active reveal">
+      <table class="pricing-table">
+        <thead>
+          <tr><th>Service</th><th>Details</th><th>Price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Haircut – Male</td><td class="price-cat"></td><td class="price-amt">₹1,000</td></tr>
+          <tr><td>Haircut – Female</td><td class="price-cat"></td><td class="price-amt">₹1,500</td></tr>
+          <tr><td>0-Trim</td><td class="price-cat"></td><td class="price-amt">₹150</td></tr>
+          <tr><td>Shape Up</td><td class="price-cat"></td><td class="price-amt">₹250</td></tr>
+          <tr><td>Professional Hair Colouring – Men</td><td class="price-cat">Starts from</td><td class="price-amt">₹1,000</td></tr>
+          <tr><td>Professional Hair Colouring – Female</td><td class="price-cat">Root touch up, starts from</td><td class="price-amt">₹1,500</td></tr>
+          <tr><td>Wella Plex Treatment (Hair Spa)</td><td class="price-cat"></td><td class="price-amt">₹1,500</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- COLOURING -->
+    <div id="panel-colouring" class="pricing-panel reveal">
+      <table class="pricing-table">
+        <thead>
+          <tr><th>Service</th><th>Details</th><th>Price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Streaks Colouring</td><td class="price-cat">Per streak, without pre-light</td><td class="price-amt">₹500</td></tr>
+          <tr><td>Streaks Colouring</td><td class="price-cat">Per streak, with pre-light</td><td class="price-amt">₹750</td></tr>
+          <tr><td>Full Global Reflection</td><td class="price-cat">Starts from</td><td class="price-amt">₹5,500</td></tr>
+          <tr><td>Highlights</td><td class="price-cat">Starts from</td><td class="price-amt">₹8,000</td></tr>
+          <tr><td>Baby Lights</td><td class="price-cat">Starts from</td><td class="price-amt">₹9,000</td></tr>
+          <tr><td>Balayage</td><td class="price-cat">Starts from</td><td class="price-amt">₹9,000</td></tr>
+          <tr><td>Ombre</td><td class="price-cat">Starts from</td><td class="price-amt">₹9,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PROTEIN TREATMENTS -->
+    <div id="panel-protein" class="pricing-panel reveal">
+      <table class="pricing-table">
+        <thead>
+          <tr><th>Service</th><th>Details</th><th>Price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Botox Treatment</td><td class="price-cat">Starts from</td><td class="price-amt">₹7,000</td></tr>
+          <tr><td>Botoliss Treatment</td><td class="price-cat">Starts from</td><td class="price-amt">₹9,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SKIN -->
+    <div id="panel-skin" class="pricing-panel reveal">
+      <table class="pricing-table">
+        <thead>
+          <tr><th>Service</th><th>Details</th><th>Price</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>De-Tan – Face</td><td class="price-cat"></td><td class="price-amt">₹300</td></tr>
+          <tr><td>De-Tan – Neck</td><td class="price-cat"></td><td class="price-amt">₹300</td></tr>
+          <tr><td>De-Tan – Back Neck</td><td class="price-cat"></td><td class="price-amt">₹300</td></tr>
+          <tr><td>De-Tan – Hands (Full Arm)</td><td class="price-cat"></td><td class="price-amt">₹800</td></tr>
+          <tr><td>Clean Up</td><td class="price-cat"></td><td class="price-amt">₹1,000</td></tr>
+          <tr><td>Facial</td><td class="price-cat">Starts from</td><td class="price-amt">₹1,500</td></tr>
+          <tr><td>Brightening Facial with Vitamin C Peel Off</td><td class="price-cat"></td><td class="price-amt">₹2,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MAKEUP -->
+    <div id="panel-makeup" class="pricing-panel reveal">
+      <table class="pricing-table">
+        <thead>
+          <tr><th>Package</th><th>Includes</th><th>Price</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Classic Make-up</strong><br><span class="price-cat">Groom maids / Light make-up</span></td>
+            <td class="price-cat">Face make-up &amp; hair styling</td>
+            <td class="price-amt">₹8,000<br><span style="font-size:0.75rem;color:#888">per sitting</span></td>
+          </tr>
+          <tr>
+            <td><strong>HD Make-up</strong></td>
+            <td class="price-cat">Face make-up, hair styling &amp; beard styling</td>
+            <td class="price-amt">₹10,000<br><span style="font-size:0.75rem;color:#888">per sitting</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top:1rem; font-size:0.82rem; color:#888; font-style:italic;">* Travel expenses charged extra for outdoor bookings.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gallery-inner">
+    <div class="gallery-header reveal">
+      <div class="section-tag">✦ Our Work</div>
+      <h2 class="section-title">Photo Gallery</h2>
+      <div class="divider"></div>
+      <p class="section-sub">A glimpse into the transformations we create every day at Kalaignan Studio Lounge.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item tall">✂️<br><br>Hair<br>Transformations</div>
+      <div class="gallery-item">🎨 Colour<br>Work</div>
+      <div class="gallery-item">💄 Bridal<br>Makeup</div>
+      <div class="gallery-item wide">🌿 Spa &amp; Wellness<br>Relaxation</div>
+      <div class="gallery-item">💅 Nail<br>Art</div>
+      <div class="gallery-item">✨ Skin<br>Glow</div>
+    </div>
+    <p style="text-align:center; margin-top:2rem; color:var(--warm-gray); font-size:0.85rem; font-style:italic;">
+      ↑ Replace these placeholders with real photos from your salon
+    </p>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="booking-inner">
+    <div class="booking-info reveal">
+      <div class="section-tag">✦ Get in Touch</div>
+      <h2 class="section-title">Book Your Visit</h2>
+      <div class="divider"></div>
+      <p class="section-sub">Ready for a transformation? Book your appointment or reach us directly.</p>
+      <ul class="contact-list">
+        <li>
+          <div class="contact-icon">📍</div>
+          <div class="contact-text">
+            <strong>Address</strong>
+            <span>GKP Enclave,Nejundapuram Road,<br>Opp. Apollo Pharmacy, Ramanathapuram,<br>Coimbatore</span>
+          </div>
+        </li>
+        <li>
+          <div class="contact-icon">📞</div>
+          <div class="contact-text">
+            <strong>Phone</strong>
+            <span>+91 83001 23702</span>
+          </div>
+        </li>
+        <li>
+          <div class="contact-icon">📸</div>
+          <div class="contact-text">
+            <strong>Instagram</strong>
+            <span>@Mr.kalaignan</span>
+          </div>
+        </li>
+        <li>
+          <div class="contact-icon">✉️</div>
+          <div class="contact-text">
+            <strong>Email</strong>
+            <span>vigneshcn2@gmail.com</span>
+          </div>
+        </li>
+        <li>
+          <div class="contact-icon">🕐</div>
+          <div class="contact-text">
+            <strong>Hours</strong>
+            <span>Mon–Sat: 9 AM – 8 PM<br>Sunday: 10 AM – 6 PM</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <div class="booking-form" id="bookingForm">
+        <div class="form-group">
+            <label>Name</label>
+            <input id="f-firstname" type="text" placeholder="Your Name" />
+          </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input id="f-phone" type="tel" placeholder="+91 98765 43210" />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Service</label>
+            <select id="f-service">
+              <option value="">Select a service</option>
+              <option>Hair Cut & Styling</option>
+              <option>Hair Colour & Highlights</option>
+              <option>Facial & Skincare</option>
+              <option>Bridal Package</option>
+              <option>Groom Package</option>
+              <option>Protein Treatment (Botox/Botoliss)</option>
+              <option>De-Tan</option>
+              <option>Make-up</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input id="f-date" type="date" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Message (Optional)</label>
+          <textarea id="f-message" placeholder="Any special requests or notes..."></textarea>
+        </div>
+        <button class="form-submit" onclick="submitForm()">Confirm Appointment →</button>
+        <div class="form-success" id="formSuccess">
+          ✓ Appointment request sent! You'll receive a confirmation via WhatsApp & Email shortly.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Kalaignan Studio Lounge</div>
+      <p class="footer-tagline">Privacy Unisex Salon, Coimbatore's salon destination. Located at Ramanathapuram, where every visit is an experience in art and transformation.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul class="footer-links">
+        <li><a href="#services">Hair Styling</a></li>
+        <li><a href="#services">Hair Colour</a></li>
+        <li><a href="#services">Facials</a></li>
+        <li><a href="#services">Nail Art</a></li>
+        <li><a href="#services">Bridal</a></li>
+        <li><a href="#services">Spa</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#booking">Book Now</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul class="footer-links">
+        <li><a href="https://instagram.com/Mr.kalaignan" target="_blank">Instagram @Mr.kalaignan</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Kalaignan Studio Lounge, Coimbatore. All rights reserved.</span>
+    <span>Designed with ♥ for beauty</span>
+  </div>
+</footer>
+
+<script>
+  // ── SCROLL PROGRESS BAR ──
+  window.addEventListener('scroll', () => {
+    const p = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    document.getElementById('scroll-progress').style.width = p + '%';
+  });
+
+  // ── CURSOR GLOW ──
+  const cursorGlow = document.getElementById('cursor-glow');
+  document.addEventListener('mousemove', e => {
+    cursorGlow.style.left = e.clientX + 'px';
+    cursorGlow.style.top  = e.clientY + 'px';
+  });
+
+  // ── PARTICLE CANVAS ──
+  const canvas = document.getElementById('particle-canvas');
+  const ctx = canvas.getContext('2d');
+  function resizeCanvas() {
+    canvas.width  = canvas.parentElement.offsetWidth;
+    canvas.height = canvas.parentElement.offsetHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  class Particle {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 2 + 0.5;
+      this.speedX = (Math.random() - 0.5) * 0.4;
+      this.speedY = (Math.random() - 0.5) * 0.4;
+      this.opacity = Math.random() * 0.5 + 0.1;
+      this.color = Math.random() > 0.5 ? '201,168,76' : '255,220,140';
+    }
+    update() {
+      this.x += this.speedX; this.y += this.speedY;
+      if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${this.color},${this.opacity})`;
+      ctx.fill();
+    }
+  }
+  const particles = [];
+  for (let i = 0; i < 120; i++) particles.push(new Particle());
+
+  function connectParticles() {
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 100) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(201,168,76,${0.08 * (1 - dist/100)})`;
+          ctx.lineWidth = 0.5;
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+    connectParticles();
+    requestAnimationFrame(animateParticles);
+  }
+  animateParticles();
+
+  // ── 3D TILT ON SERVICE CARDS ──
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const rotX = (-y / rect.height) * 14;
+      const rotY = (x / rect.width) * 14;
+      card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(10px)`;
+      card.style.transition = 'none';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateZ(0)';
+      card.style.transition = 'transform 0.5s ease';
+    });
+  });
+
+  // ── 3D TILT ON GALLERY ITEMS ──
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('mousemove', e => {
+      const rect = item.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const rotX = (-y / rect.height) * 10;
+      const rotY = (x / rect.width) * 10;
+      item.style.transform = `perspective(600px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.04)`;
+      item.style.transition = 'none';
+    });
+    item.addEventListener('mouseleave', () => {
+      item.style.transform = 'perspective(600px) rotateX(0) rotateY(0) scale(1)';
+      item.style.transition = 'transform 0.4s ease';
+    });
+  });
+
+  // ── SCROLL REVEAL ──
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => observer.observe(r));
+
+  // ── PRICING TABS ──
+  function showTab(tab) {
+    document.querySelectorAll('.pricing-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.pricing-tab').forEach(t => t.classList.remove('active'));
+    const panel = document.getElementById('panel-' + tab);
+    panel.classList.add('active');
+    panel.style.animation = 'fadeUp 0.4s ease both';
+    event.target.classList.add('active');
+  }
+
+  // ── NAV SCROLL HIGHLIGHT ──
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+
+  // ── BOOKING FORM SUBMIT ──
+  function submitForm() {
+    const firstName = document.getElementById('f-firstname').value.trim();
+    const phone     = document.getElementById('f-phone').value.trim();
+    const service   = document.getElementById('f-service').value.trim();
+    const date      = document.getElementById('f-date').value.trim();
+    const message   = document.getElementById('f-message').value.trim();
+
+    if (!firstName || !phone || !service) {
+      alert('Please fill in Name, Phone Number and Service at minimum.');
+      return;
+    }
+
+    const waText = encodeURIComponent(
+      `📅 *New Appointment Request*\n` +
+      `👤 Name: ${firstName}\n` +
+      `📞 Phone: ${phone}\n` +
+      `✂️ Service: ${service}\n` +
+      `📆 Date: ${date || 'Not specified'}\n` +
+      `💬 Notes: ${message || 'None'}\n\n` +
+      `_Sent via Kalaignan Studio Lounge website_`
+    );
+    window.open(`https://wa.me/918300123702?text=${waText}`, '_blank');
+
+    const mailSubject = encodeURIComponent(`New Appointment Request – ${firstName}`);
+    const mailBody = encodeURIComponent(
+      `New Appointment Request\n\nName    : ${firstName}\nPhone   : ${phone}\nService : ${service}\nDate    : ${date || 'Not specified'}\nNotes   : ${message || 'None'}\n\nSent via Kalaignan Studio Lounge website`
+    );
+    window.open(`mailto:vigneshcn2@gmail.com?subject=${mailSubject}&body=${mailBody}`, '_blank');
+
+    const successEl = document.getElementById('formSuccess');
+    successEl.style.display = 'block';
+    successEl.style.animation = 'fadeUp 0.5s ease both';
+    setTimeout(() => { successEl.style.display = 'none'; }, 6000);
+  }
+</script>
+</body>
+</html>
